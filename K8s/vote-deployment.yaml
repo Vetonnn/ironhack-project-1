@@ -13,10 +13,12 @@ spec:
         app: vote
     spec:
       containers:
-      - name: vote
-        image: pokfinner/vote:latest
-        ports:
-        - containerPort: 80
-        env:
-        - name: REDIS
-          value: "redis"
+        - name: vote
+          image: pokfinner/vote:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: REDIS_HOST
+              value: "redis-service"
+            - name: REDIS_PORT
+              value: "6379"

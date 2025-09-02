@@ -13,10 +13,17 @@ spec:
         app: worker
     spec:
       containers:
-      - name: worker
-        image: pokfinner/worker:latest
-        env:
-        - name: REDIS_HOST
-          value: "redis"
-        - name: POSTGRES_HOST
-          value: "db"
+        - name: worker
+          image: pokfinner/worker:latest
+          env:
+            - name: REDIS_HOST
+              value: "redis-service"
+            - name: POSTGRES_HOST
+              value: "db"
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_PASSWORD
+              value: "postgres"
+            - name: POSTGRES_DB
+              value: "postgres"
+
